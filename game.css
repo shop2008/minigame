@@ -1,0 +1,121 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #1a202c;
+    margin: 0;
+}
+
+.shadow-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.winner {
+    border: 3px solid #4CAF50;
+    box-shadow: 0 0 10px #4CAF50;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+#gameStatus {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.button-container {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.game-btn {
+    background-color: white;
+    color: #1a202c;
+    font-weight: 600;
+    padding: 1.5rem 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-btn:hover {
+    background-color: #f7fafc;
+    transform: scale(1.1) rotate(3deg);
+}
+
+.game-btn .emoji {
+    font-size: 4rem;
+    margin-bottom: 0.75rem;
+}
+
+.game-btn .text {
+    font-size: 1.25rem;
+}
+
+#result, #score {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: 600;
+}
+
+#choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    margin-bottom: 2rem;
+}
+
+#playerChoice, #computerChoice {
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#playerChoice p, #computerChoice p {
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: #4a5568;
+}
+
+#playerChoiceImg, #computerChoiceImg {
+    font-size: 4rem;
+    display: none;
+}
+
+#resetBtn {
+    background-color: #f56565;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    cursor: pointer;
+    display: none;
+}
+
+#resetBtn:hover {
+    background-color: #e53e3e;
+}
