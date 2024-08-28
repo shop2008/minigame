@@ -1,23 +1,44 @@
+// Initialize player and computer scores to 0
 let playerScore = 0;
 let computerScore = 0;
 let gamesPlayed = 0;
 
+/**
+ * Plays a single round of the game
+ * @param {string} playerChoice - The player's choice (rock, paper, or scissors)
+ */
 function playGame(playerChoice) {
+  // Stop the game if 5 rounds have been played
   if (gamesPlayed >= 5) return;
 
+  // Define possible choices
   const choices = ["rock", "paper", "scissors"];
+  // Randomly select a choice for the computer
   const computerChoice = choices[Math.floor(Math.random() * 3)];
 
+  // Determine the winner of the round
   const result = getWinner(playerChoice, computerChoice);
+  // Update the scores based on the result
   updateScore(result);
+  // Display the result of the round
   displayResult(playerChoice, computerChoice, result);
 
+  // Increment the number of games played
   gamesPlayed++;
+  // Check if the game has ended
   checkGameEnd();
 }
 
+/**
+ * Determines the winner of a round
+ * @param {string} player - The player's choice
+ * @param {string} computer - The computer's choice
+ * @returns {string} - 'tie', 'player', or 'computer'
+ */
 function getWinner(player, computer) {
+  // If both choices are the same, it's a tie
   if (player === computer) return "tie";
+  // Determine the winner based on the rules of the game
   if (
     (player === "rock" && computer === "scissors") ||
     (player === "paper" && computer === "rock") ||
@@ -28,11 +49,21 @@ function getWinner(player, computer) {
   return "computer";
 }
 
+/**
+ * Updates the score based on the round result
+ * @param {string} result - The result of the round
+ */
 function updateScore(result) {
   if (result === "player") playerScore++;
   if (result === "computer") computerScore++;
 }
 
+/**
+ * Displays the result of the round and updates the UI
+ * @param {string} player - The player's choice
+ * @param {string} computer - The computer's choice
+ * @param {string} result - The result of the round
+ */
 function displayResult(player, computer, result) {
   const resultDiv = document.getElementById("result");
   const scoreDiv = document.getElementById("score");
@@ -66,6 +97,9 @@ function displayResult(player, computer, result) {
   computerChoiceImg.style.display = "block";
 }
 
+/**
+ * Checks if the game has ended and updates the UI accordingly
+ */
 function checkGameEnd() {
   const gameStatus = document.getElementById("gameStatus");
   const resetBtn = document.getElementById("resetBtn");
@@ -88,6 +122,9 @@ function checkGameEnd() {
   }
 }
 
+/**
+ * Resets the game state and UI to start a new game
+ */
 function resetGame() {
   playerScore = 0;
   computerScore = 0;
@@ -106,6 +143,11 @@ function resetGame() {
   document.getElementById("computerChoice").classList.remove("winner");
 }
 
+/**
+ * Returns the emoji representation of a choice
+ * @param {string} choice - The choice (rock, paper, or scissors)
+ * @returns {string} - The corresponding emoji
+ */
 function getImageSource(choice) {
   const emojis = {
     rock: "✊",
